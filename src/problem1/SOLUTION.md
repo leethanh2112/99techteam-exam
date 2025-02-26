@@ -1,4 +1,4 @@
-## Overview
+# Overview
 This solution implements a bash script for processing TSLA stock sell orders from a transaction log. The script handles order processing, error management, and generates detailed reports.
 
 ## Install linux command #
@@ -18,8 +18,8 @@ cat ./transaction-log.txt | jq -r 'select(.symbol == "TSLA" and .side == "sell")
 chmod +x process-tsla-orders.sh
 ./process-tsla-orders.sh
 ```
-## Output Format ##
-# Console Output
+# Output Format ##
+## Console Output
 ```
 Starting TSLA sell order processing at 2024-01-20 10:30:15
 Processing order 12345... ✓ SUCCESS (Status: 200)
