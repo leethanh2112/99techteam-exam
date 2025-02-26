@@ -1,19 +1,19 @@
 # Overview
 This solution implements a bash script for processing TSLA stock sell orders from a transaction log. The script handles order processing, error management, and generates detailed reports.
 
-## Install linux command #
+# Install linux command #
 ```
 sudo apt-get install jq curl
 jq --version
 curl --version
 ```
 
-## Run in a single command ##
+# Run in a single command ##
 ```
 cat ./transaction-log.txt | jq -r 'select(.symbol == "TSLA" and .side == "sell") | .order_id' | while read order_id; do echo "Processing order ID: $order_id" >&2; curl -v "https://example.com/api/$order_id"
 ```
 
-## Run in a script ##
+# Run in a script ##
 ```
 chmod +x process-tsla-orders.sh
 ./process-tsla-orders.sh
@@ -32,5 +32,3 @@ Failed requests: 1
 ```
 # Output File
 The script generates output.txt containing detailed response data for each processed order.
-
-
