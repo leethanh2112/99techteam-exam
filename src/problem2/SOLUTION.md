@@ -1,5 +1,5 @@
 # Diagram:
-![Castle](https://github.com/user-attachments/assets/246d1ae8-21de-41c5-8d40-593d8e1556d4)
+![Castle](https://github.com/user-attachments/assets/e71b1388-1d4d-4a7f-9936-f0044a16e3b3)
 
 ## 1.AWS Shield
 Why Used:
@@ -134,6 +134,16 @@ Supports automatic key rotation, fine-grained IAM permissions, and integration w
 Alternatives Considered:
 ```
 HashiCorp Vault: Self-managed secret and encryption key storage, but requires infrastructure setup.
+```
+
+## 12.AWS KMS (Key Management Service)
+Why Used:
+```
+Provides a place to centralize the log from Application.
+```
+Alternatives Considered:
+```
+Datadog , ELK, Prometheus Loki
 ```
 
 ## Plans for scaling when the product grows
