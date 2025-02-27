@@ -39,9 +39,31 @@ Server may become unresponsive due to memory exhaustion.
 # Recovery Steps:
 Add Whitelist IP to nginx configuration
 ```
+server {
+    listen 80;
+    server_name example.com;
+
+    location / {
+        allow X.X.X.X;   # Allow this specific IP
+        allow Y.Y.Y.Y;     # Allow another specific IP
+        deny all;              # Deny all other IPs
+    }
+}
+
+```
+Rate Limit Requests in NGINX:
+```
+limit_req_zone $remote_addr zone=one:10m rate=10r/s;
+server {
+    location / {
+        limit_req zone=one burst=20;
+    }
+}
 ```
 Enable Connection Limits
 ```
+worker_connections 2048;
+keepalive_timeout 15;
 ```
 Use Cloudflare / AWS WAF or adding Nginx instances to autoscaling group
 Protect against DDoS attacks with AWS Shield or Cloudflare
