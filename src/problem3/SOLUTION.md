@@ -1,5 +1,5 @@
-## Troubleshooting High Memory Usage on Ubuntu 24.04 Running NGINX
-## 1.Check Memory Usage Details
+# Troubleshooting High Memory Usage on Ubuntu 24.04 Running NGINX
+# 1.Check Memory Usage Details
 Run the following commands to analyze memory consumption:
 ```
 free -h
@@ -18,7 +18,7 @@ cat /var/log/nginx/error.log | tail -100
 ```
 Check for errors or excessive logging.
 
-# Recovery Steps:
+## Recovery Steps:
 Try to restart nginx
 ```
 systemctl restart nginx
@@ -28,7 +28,7 @@ Kill service IDs that cause high memory usage
 kill -9 PID
 ```
 
-## 2: Excessive Client Requests / High Traffic Load
+# 2: Excessive Client Requests / High Traffic Load
 Logs show a surge in incoming traffic leading to excessive resource usage.
 netstat -anp | grep ":80" shows too many connections.
 
@@ -36,7 +36,7 @@ Impact:
 Increased response time, possible 502/504 gateway errors.
 Server may become unresponsive due to memory exhaustion.
 
-# Recovery Steps:
+## Recovery Steps:
 Add Whitelist IP to nginx configuration
 ```
 server {
@@ -70,7 +70,7 @@ keepalive_timeout 15;
 - Protect against DDoS attacks with AWS Shield or Cloudflare.
 - Deploy additional NGINX instances and use AWS ALB / Route 53 for load balancing.
 
-## 3: Log Files Consuming Excessive Memory
+# 3: Log Files Consuming Excessive Memory
 Scenario:
 
 /var/log/nginx/access.log or /var/log/nginx/error.log are growing uncontrollably.
@@ -80,7 +80,7 @@ Impact:
 Excessive logging consumes both disk and memory.
 If logs fill the disk, NGINX may fail to write logs and cause unexpected behavior.
 
-# Recovery Steps:
+## Recovery Steps:
 - Rotate Logs Efficiently
 Edit /etc/logrotate.d/nginx:
 ```
