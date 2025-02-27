@@ -25,3 +25,113 @@ Alternatives Considered:
 NLB (Network Load Balancer): Preferred for handling TCP/UDP-based workloads, but lacks advanced HTTP-based routing.
 CloudFront with API Gateway: For global edge distribution, but may not be necessary for internal traffic.
 ```
+
+## 3.Amazon ECS (Elastic Container Service)
+Why Used:
+```
+Provides container orchestration to deploy, manage, and scale Docker containers.
+Integrates seamlessly with AWS services like ALB, IAM, Secret Manager and CloudWatch.
+Reduces overhead compared to managing Kubernetes clusters manually.
+```
+Alternatives Considered:
+```
+Amazon EKS (Elastic Kubernetes Service): More flexible but requires Kubernetes management.
+AWS Lambda: Suitable for event-driven applications but not ideal for long-running services.
+Self-managed Kubernetes: More control but requires infrastructure maintenance.
+```
+
+## 4.Amazon RDS Aurora (PostgreSQL)
+Why Used:
+```
+Provides managed relational database services with automated backups, replication, and performance enhancements.
+Aurora is serverless and supports auto-scaling, reducing management overhead.
+```
+Alternatives Considered:
+```
+Self-hosted PostgreSQL on EC2: More control, but requires maintenance and scaling.
+```
+
+## 5.AWS ElastiCache
+Why Used:
+```
+Provides low-latency caching for session storage and API responses.
+Reduces database load by caching frequently accessed data.
+Supports Redis and Memcached for flexibility
+```
+Alternatives Considered:
+```
+CloudFront for edge caching: More useful for CDN-based caching, not application session storage.
+```
+
+## 6.AWS Secrets Manager
+Why Used:
+```
+Securely stores sensitive information like database credentials, API keys, and encryption keys.
+Provides automatic rotation and fine-grained access control via IAM.
+```
+Alternatives Considered:
+```
+Parameter Store (AWS Systems Manager): Lower-cost alternative but lacks built-in rotation features.
+Vault by HashiCorp: Popular self-managed secret store, but requires additional infrastructure.
+```
+
+## 7.Amazon S3
+Why Used:
+```
+Stores static files like application assets, logs, and backups.
+Provides scalability, durability, and lifecycle management for cost optimization.
+```
+Alternatives Considered:
+```
+EFS (Elastic File System): Better for shared file systems but not for object storage.
+CloudFront for global distribution: Useful if latency-sensitive content delivery is required.
+```
+
+## 8.Amazon Route 53
+Why Used:
+```
+Provides DNS routing and domain name management.
+Supports health checks and traffic routing policies (e.g., latency-based, failover).
+```
+Alternatives Considered:
+```
+Cloudflare DNS: Offers DDoS protection and additional security features.
+Google Cloud DNS: A multi-cloud alternative with similar capabilities.
+```
+
+## 9.Amazon ECR (Elastic Container Registry)
+Why Used:
+```
+Stores and manages Docker container images securely.
+Provides integration with ECS, IAM-based access control, and vulnerability scanning.
+```
+Alternatives Considered:
+```
+Docker Hub: Public registry but has pull limits.
+GitHub Container Registry: Suitable for GitHub-based workflows.
+Self-hosted Harbor: Open-source alternative, but requires additional management.
+```
+
+## 10.VPN Gateway
+Why Used:
+```
+Allows secure connectivity between the tech team and AWS environment.
+Provides IPSec-based encrypted communication for private network access.
+```
+Alternatives Considered:
+```
+Bastion Host (Jump Server): Alternative for SSH-based access, but requires additional security measures.
+Open VPN Server: Free Opensource, but requires additional infrastructure.
+```
+
+## 11.AWS KMS (Key Management Service)
+Why Used:
+```
+Provides secure encryption key management for protecting sensitive data.
+Used to encrypt data in S3, RDS (Aurora), Secrets Manager, and ElastiCache.
+Supports automatic key rotation, fine-grained IAM permissions, and integration with AWS services.
+```
+Alternatives Considered:
+```
+HashiCorp Vault: Self-managed secret and encryption key storage, but requires infrastructure setup.
+```
