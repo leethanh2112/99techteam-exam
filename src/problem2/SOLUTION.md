@@ -135,3 +135,15 @@ Alternatives Considered:
 ```
 HashiCorp Vault: Self-managed secret and encryption key storage, but requires infrastructure setup.
 ```
+
+## Plans for scaling when the product grows
+As the product scales, the current AWS setup should evolve to handle increased traffic, data volume, and system complexity. Below are key areas for scalability planning with specific AWS services and alternative strategies.
+
+# 1. Compute Scaling (ECS & Backend Services)
+ECS (Elastic Container Service) manages frontend & backend microservices with auto-scaling enabled.
+Each ECS Task is placed in a private subnet and uses an ALB for traffic distribution.
+```
+✅ Increase ECS Task Count: Configure ECS Service Auto Scaling to dynamically add/remove containers based on CPU, memory, and request count.
+✅ Fargate Migration: Move to AWS Fargate to eliminate EC2 management and scale on-demand.
+✅ EKS (Kubernetes) Transition: If microservices expand significantly, consider Amazon EKS for better orchestration and multi-region scaling.
+```
