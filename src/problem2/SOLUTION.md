@@ -136,7 +136,7 @@ Alternatives Considered:
 HashiCorp Vault: Self-managed secret and encryption key storage, but requires infrastructure setup.
 ```
 
-## 12.AWS KMS (Key Management Service)
+## 12.AWS Cloudwatch
 Why Used:
 ```
 Provides a place to centralize the log from Application.
