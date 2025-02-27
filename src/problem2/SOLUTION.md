@@ -147,3 +147,23 @@ Each ECS Task is placed in a private subnet and uses an ALB for traffic distribu
 ✅ Fargate Migration: Move to AWS Fargate to eliminate EC2 management and scale on-demand.
 ✅ EKS (Kubernetes) Transition: If microservices expand significantly, consider Amazon EKS for better orchestration and multi-region scaling.
 ```
+
+# 2. Database Scaling (Aurora PostgreSQL)
+Amazon Aurora PostgreSQL with a primary writer and read replicas.
+Encrypted at rest using AWS KMS.
+```
+✅ Enable Aurora Auto-Scaling: Add read replicas automatically based on query volume.
+✅ Multi-AZ Deployment: Ensure automatic failover with Aurora Global Database to reduce downtime.
+```
+
+# 3. API & Traffic Scaling
+API requests go through ALB (Application Load Balancer), distributing traffic to ECS services.
+Route 53 manages domain resolution with failover policies.
+
+# 4. Storage Scaling (S3 & ElastiCache)
+S3 stores static files (encrypted with KMS).
+ElastiCache (Redis) stores user sessions for fast lookups.
+```
+✅ S3 Lifecycle Policies: Automate moving data to Glacier for cost savings.
+✅ ElastiCache Cluster Mode: Scale Redis horizontally for large datasets.
+```
