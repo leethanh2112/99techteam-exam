@@ -66,7 +66,7 @@ worker_connections 2048;
 keepalive_timeout 15;
 ```
 
-Use Cloudflare / AWS WAF or adding Nginx instances to autoscaling group.
-Protect against DDoS attacks with AWS Shield or Cloudflare.
-Deploy additional NGINX instances and use AWS ALB / Route 53 for load balancing.
+- Use Cloudflare / AWS WAF or adding Nginx instances to autoscaling group.
+- Protect against DDoS attacks with AWS Shield or Cloudflare.
+- Deploy additional NGINX instances and use AWS ALB / Route 53 for load balancing.
 
