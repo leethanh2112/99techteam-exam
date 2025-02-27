@@ -70,3 +70,26 @@ keepalive_timeout 15;
 - Protect against DDoS attacks with AWS Shield or Cloudflare.
 - Deploy additional NGINX instances and use AWS ALB / Route 53 for load balancing.
 
+## 3: Log Files Consuming Excessive Memory
+Scenario:
+
+/var/log/nginx/access.log or /var/log/nginx/error.log are growing uncontrollably.
+Running du -sh /var/log/nginx/ shows high disk usage.
+Impact:
+
+Excessive logging consumes both disk and memory.
+If logs fill the disk, NGINX may fail to write logs and cause unexpected behavior.
+
+# Recovery Steps:
+- Rotate Logs Efficiently
+Edit /etc/logrotate.d/nginx:
+```
+/var/log/nginx/*.log {
+    daily
+    rotate 7
+    compress
+    missingok
+    notifempty
+}
+```
+
