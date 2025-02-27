@@ -1,2 +1,2 @@
 # Diagram:
-![Castle](https://github.com/user-attachments/assets/3f095a02-5d8b-4c0e-8b0b-db05ce9d6bb6)
+![Castle](https://github.com/user-attachments/assets/0afd5fb0-917a-423d-a51a-45a4f774ad62)
